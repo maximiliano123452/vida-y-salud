@@ -1,0 +1,7 @@
+{
+  "name": "vida-y-salud",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
