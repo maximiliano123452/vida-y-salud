@@ -1,13 +1,52 @@
-<app-header></app-header>
+<app-header></app-header> <!-- Header personalizado -->
 
-<ion-content class="ion-padding">
-  <ion-button expand="block" routerLink="/login">
-    Iniciar Sesión
-  </ion-button>
-  <ion-button expand="block" routerLink="/registro">
-    Registrarse
-  </ion-button>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Imagen de usuario y mensaje de bienvenida -->
+  <div class="user-info" style="text-align: center;">
+    <img src="../../assets/img/user.png" alt="User Avatar" class="user-avatar" style="width: 100px; border-radius: 50%;" />
+    <h2><strong>Bienvenido(a)</strong><br/> {{ email }}</h2>
+    <span>Tu bienestar es nuestra prioridad</span>
+  </div>
+
+  <div class="ofertas-info" style="margin-top: 30px;">
+    <h2>Servicios Destacados</h2>
+  </div>
+
+  <!-- Cards de Servicios -->
+  <ion-card>
+    <img src="../../assets/img/salud1.jpg" alt="Chequeo General" />
+    <ion-card-header>
+      <ion-card-title>Chequeo General</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Realiza un control médico completo para evaluar tu estado de salud actual.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="../../assets/img/salud2.jpg" alt="Nutrición" />
+    <ion-card-header>
+      <ion-card-title>Nutrición</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Consejos alimenticios personalizados según tus objetivos y estilo de vida.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="../../assets/img/salud3.jpg" alt="Actividad Física" />
+    <ion-card-header>
+      <ion-card-title>Actividad Física</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Rutinas y recomendaciones para mantenerte en forma de manera saludable.
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
+
+
 
 
 

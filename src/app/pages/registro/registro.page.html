@@ -1,33 +1,69 @@
-<app-header></app-header>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="center-title">Registro</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="mainMenu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Registro</ion-card-title>
+      <ion-card-title class="ion-text-center">Crea tu cuenta</ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Nombre completo</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
+      <form (ngSubmit)="onRegister()">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="nombre" name="nombre" required></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Correo electrónico</ion-label>
-        <ion-input type="email"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input type="text" [(ngModel)]="apellido" name="apellido" required></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="usuario" name="usuario" required></ion-input>
+        </ion-item>
 
-      <ion-button expand="block">Registrarse</ion-button>
-      <ion-button expand="block" fill="clear" routerLink="/login">
-        ¿Ya tienes cuenta? Inicia sesión
-      </ion-button>
+        <ion-item>
+          <ion-label position="floating">Correo Electrónico</ion-label>
+          <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Nivel de Educación</ion-label>
+          <ion-select [(ngModel)]="nivelEducacion" name="nivelEducacion" interface="popover">
+            <ion-select-option value="Universitario">Universitario</ion-select-option>
+            <ion-select-option value="Magíster">Magíster</ion-select-option>
+            <ion-select-option value="Doctorado">Doctorado</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Fecha de nacimiento</ion-label>
+          <ion-datetime presentation="date" [(ngModel)]="fechaNacimiento" name="fechaNacimiento"></ion-datetime>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" class="ion-margin-top" color="primary">Guardar datos</ion-button>
+        <ion-button expand="block" fill="outline" routerLink="/login" class="ion-margin-top">Volver al login</ion-button>
+      </form>
     </ion-card-content>
   </ion-card>
 </ion-content>
+
 
 
 

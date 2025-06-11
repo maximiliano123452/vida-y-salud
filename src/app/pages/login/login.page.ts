@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular'; 
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -13,25 +13,30 @@ export class LoginPage {
   email: string = '';
   password: string = '';
 
-  constructor(private navCtrl: NavController, private alertController: AlertController) {}
+  constructor(
+    private router: Router,
+    private alertController: AlertController
+  ) {}
 
+  // Método para mostrar alerta de error
   async mostrarAlerta(mensaje: string) {
     const alert = await this.alertController.create({
-      header: 'Error',
+      header: 'Atención',
       message: mensaje,
       buttons: ['OK']
     });
     await alert.present();
   }
 
+  // Validación de formato de correo electrónico
   validarEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
-  login() {
+  onLogin() {
     if (!this.email) {
-      this.mostrarAlerta('El campo de correo no puede estar vacío.');
+      this.mostrarAlerta('Por favor ingresa tu correo electrónico.');
       return;
     }
 
@@ -41,7 +46,7 @@ export class LoginPage {
     }
 
     if (!this.password) {
-      this.mostrarAlerta('El campo de contraseña no puede estar vacío.');
+      this.mostrarAlerta('Por favor ingresa tu contraseña.');
       return;
     }
 
@@ -50,7 +55,8 @@ export class LoginPage {
       return;
     }
 
-    this.navCtrl.navigateForward(['/home'], {
+    // Si todo está bien, navegamos a la página Home con los parámetros
+    this.router.navigate(['/home'], {
       queryParams: {
         email: this.email,
         password: this.password
@@ -58,8 +64,10 @@ export class LoginPage {
     });
   }
 
+  // Redirección al registro
   registro() {
-    this.navCtrl.navigateForward(['/registro']);
+    this.router.navigate(['/registro']);
   }
 }
+
 

@@ -1,0 +1,58 @@
+ion-card {
+  background-color: rgba(255, 255, 255, 0.6); /* Fondo semitransparente */
+  backdrop-filter: blur(4px); /* Desenfoque suave */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border-radius: 12px;
+  margin: 20px auto;
+  width: 90%;
+  padding: 10px;
+}
+
+ion-card-title {
+  color: #2e7d32; /* Verde fuerte */
+  font-size: 1.4rem;
+}
+
+ion-card-content {
+  padding: 20px;
+}
+
+ion-item {
+  --background: transparent;
+  color: #2e7d32;
+}
+
+ion-label {
+  color: #2e7d32; /* Verde */
+}
+
+ion-input,
+ion-select,
+ion-datetime {
+  --background: transparent;
+  color: #1b5e20;
+}
+
+ion-button {
+  --background: #388e3c; /* Verde saludable */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+ion-button[fill="outline"] {
+  --color: #388e3c;
+  --border-color: #388e3c;
+}
+
+.center-title {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-header {
+  --background: #a5d6a7; /* Verde claro */
+  color: #1b5e20;
+}

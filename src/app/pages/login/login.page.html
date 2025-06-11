@@ -1,28 +1,53 @@
-<app-header></app-header>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="center-title">Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Iniciar Sesión</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Correo electrónico</ion-label>
-        <ion-input type="email" [(ngModel)]="email"></ion-input>
-      </ion-item>
+<ion-content [fullscreen]="true">
+  <div class="login-container">
 
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="password"></ion-input>
-      </ion-item>
+    <!-- Logo Vida y Salud -->
+    <div class="logo-container">
+      <img src="assets/img/logo_vidasalud.png" alt="Logo Vida y Salud" class="logo">
+    </div>
 
-      <ion-button expand="block" (click)="login()">Ingresar</ion-button>
-      <ion-button expand="block" fill="clear" (click)="registro()">
-        ¿No tienes cuenta? Regístrate
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-card-title class="titulo">Bienvenido a Vida y Salud 💙</ion-card-title>
+        <ion-card-subtitle class="subtitulo">Tu espacio para una vida equilibrada</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item class="input-item">
+          <ion-label position="floating" color="primary">Correo electrónico</ion-label>
+          <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+        </ion-item>
+
+        <ion-item class="input-item">
+          <ion-label position="floating" color="primary">Contraseña</ion-label>
+          <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+        </ion-item>
+
+        <!-- Botón Login -->
+        <ion-button expand="block" (click)="onLogin()" class="login-button" color="primary">Iniciar sesión</ion-button>
+
+        <!-- Botón para ir a registro -->
+        <ion-button expand="block" routerLink="/registro" fill="outline" class="register-button" color="primary">
+          Registrarse
+        </ion-button>
+
+        <ion-text class="forgot-password" color="medium">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
 </ion-content>
+
+
+
 
 
 
